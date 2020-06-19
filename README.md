@@ -94,15 +94,15 @@ C. stack segment (the segment contains data values passed to functions and proce
 | adc| Integer addition with carry|
 | add| Integer addition|
 | and| Bitwise AND|
-| bs[f/|r]| Bit scan forward, bit scan reverse|
-| b[t/|tr/|ts]| Bit test; Bit test and reset; Bit test and set|
+| bs[f\|r]| Bit scan forward, bit scan reverse|
+| b[t\|tr\|ts]| Bit test; Bit test and reset; Bit test and set|
 | call| Call procedure |
 | cld| Clear direction flag (RFLAGS.DF)|
 | cmovcc| Conditional move|
 | cmp| Compare operands|
-| cmps[b/|w/|d/|q]| Compare string operands|
+| cmps[b\|w\|d\|q]| Compare string operands|
 | cupid| Query CPU identification and feature information|
-| c[wd|dq/|do]| Convert operand|
+| c[wd|dq\|do]| Convert operand|
 | dec| Decrement operand by 1|
 | div| Unsigned integer division|
 | idiv| Signed integer division|
@@ -112,9 +112,9 @@ C. stack segment (the segment contains data values passed to functions and proce
 | jmp| Unconditional jump|
 | lahf| Load status flags into register AH|
 | lea| Load effective address|
-| lods[b/|w/|d/|q]| Load string operand|
+| lods[b\|w\|d\|q]| Load string operand|
 | mov| Move data|
-| mov[sx/|sxd]| Move integer with sign extension|
+| mov[sx\|sxd]| Move integer with sign extension|
 | movzx| Move integer with zero extension|
 | mul| Unsigned integer multiplication|
 | neg| Two’s complement negation|
@@ -124,17 +124,17 @@ C. stack segment (the segment contains data values passed to functions and proce
 | popfq| Pop top-of-stack value to RFLAGS|
 | push| Push operand onto stack|
 | pushfq| Push RFLAGS onto stack|
-| rc[l/|r]| Rotate left with RFLAGS.CF; Rotate right with RFLAGS.CF|
+| rc[l\|r]| Rotate left with RFLAGS.CF; Rotate right with RFLAGS.CF|
 | ret| Return from procedure|
-| re[p/|pe|pz|pne|pnz]| Repeat string operation (instruction prefix)|
-| ro[l/|r]| Rotate left; Rotate right|
+| re[p\|pe\|pz\|pne\|pnz]| Repeat string operation (instruction prefix)|
+| ro[l\|r]| Rotate left; Rotate right|
 | sahf| Store AH into status flags|
 | sar| Shift arithmetic right|
 | setcc| Set byte on condition|
-| sh[l/|r]| Shift logical left; Shift logical right|
+| sh[l\|r]| Shift logical left; Shift logical right|
 | sbb| Integer subtraction with borrow|
 | std| Set direction flag (RFLAGS.DF)|
-| stos[b/|w/|d/|q]| Store string value|
+| stos[b\|w\|d\|q]| Store string value|
 | test| Test operand (sets status flags)|
 | xchg| Exchange source and destination operand values|
 | xor| Bitwise exclusive OR|
