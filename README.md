@@ -102,7 +102,7 @@ C. stack segment (the segment contains data values passed to functions and proce
 | cmp| Compare operands|
 | cmps[b\|w\|d\|q]| Compare string operands|
 | cupid| Query CPU identification and feature information|
-| c[wd|dq\|do]| Convert operand|
+| c[wd\|dq\|do]| Convert operand|
 | dec| Decrement operand by 1|
 | div| Unsigned integer division|
 | idiv| Signed integer division|
