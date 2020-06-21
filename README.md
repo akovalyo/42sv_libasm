@@ -138,3 +138,31 @@ C. stack segment (the segment contains data values passed to functions and proce
 | test| Test operand (sets status flags)|
 | xchg| Exchange source and destination operand values|
 | xor| Bitwise exclusive OR|
+
+***
+
+## Branch statements
+
+### Unconditional jump
+
+```
+jmp LABEL
+```
+
+### Conditional jump
+
+```
+j** label
+```
+
+**
+| instruction | meaning | aliases | flags |
+| --- | --- | --- | --- |
+| jz | jump if zero | je | ZF=1 |
+| jnz | jimp if not zero | jne | ZF=0 |
+| jg | jump if > 0 | jnle | ZF=0 and SF=0 |
+| jge | jump if >= 0 | jnl | SF=0 |
+| jl | jump if > 0 | jnge js | SF=0 |
+| jle | jump if <= 0 | jng | ZF=1 or SF=1 |
+| jc | jump if carry | jb jnae | CF=1 |
+| jnc | jump if not carry | jnb jae | |
