@@ -168,6 +168,15 @@ j** label
 | jnc | jump if not carry | jnb jae | |
 
 ***
+## Functions
+
+* **rax** used for integer return values
+
+* **xmm0** used for floating point return values
+
+* 6 first integer parameters in a function are passed in: **rdi, rsi, rdx, rcx, r8, r9**
+
+***
 
 ## Hello World
 
