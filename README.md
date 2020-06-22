@@ -166,3 +166,54 @@ j** label
 | jle | jump if <= 0 | jng | ZF=1 or SF=1 |
 | jc | jump if carry | jb jnae | CF=1 |
 | jnc | jump if not carry | jnb jae | |
+
+***
+
+## Hello World
+
+**Using system calls**
+
+```
+	section	.data
+msg:	db	"Hello, World", 10 	; the newline at the end
+
+	section .text
+	global	start
+start:	mov	rax, 0x02000004		; system call for write
+	mov	rdi, 1              	; file handle 1 is stdout
+	mov     rsi, msg            	; address of string to output
+	mov     rdx, 13            	; number of bytes
+	syscall                     	; invoke operating system to do the write
+	mov     rax, 0x02000001     	; system call for exit
+	mov     rdi, 0          	; exit code 0
+	syscall                     	; invoke operating system to exit
+```
+
+```
+nasm -f macho64 hello.s && ld hello.o && ./a.out
+```
+
+**Using C printf**
+
+```
+	section .data
+msg:	db	"Hello World!", 0x0a, 0
+
+	section	.text
+	global	_main
+	extern	_printf
+	default	rel
+_main:
+	push	rbp
+	mov	rbp, rsp
+	lea	rdi, [msg]		; loads the effective address of the message into rdi 
+	xor	eax, eax		; 0 floating point parameters
+	call 	_printf
+	xor	eax,eax			; return 0
+	pop	rbp
+	ret
+```
+
+```
+nasm -f macho64 hello.s && gcc hello.o && a.out
+```
