@@ -188,12 +188,12 @@ msg:	db	"Hello, World", 10 	; the newline at the end
 
 	section .text
 	global	start
-start:	mov	rax, 0x02000004		; system call for write
+start:	mov	rax, 0x2000004		; system call for write
 	mov	rdi, 1              	; file handle 1 is stdout
 	mov     rsi, msg            	; address of string to output
 	mov     rdx, 13            	; number of bytes
 	syscall                     	; invoke operating system to do the write
-	mov     rax, 0x02000001     	; system call for exit
+	mov     rax, 0x2000001     	; system call for exit
 	mov     rdi, 0          	; exit code 0
 	syscall                     	; invoke operating system to exit
 ```
@@ -226,3 +226,14 @@ _main:
 ```
 nasm -f macho64 hello.s && gcc hello.o && a.out
 ```
+
+***
+
+## System calls (64bit OS X)
+
+Identified in:
+
+```
+/usr/include/sys/syscall.h
+```
+without  the 0x2000000 offset
