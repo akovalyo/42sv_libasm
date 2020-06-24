@@ -2,9 +2,10 @@
 			global	_ft_strlen
 
 _ft_strlen:
-			xor		rax, rax	
-while:		cmp		byte[rdi + rax], 0
-			je		end_while
-			inc		rax
-			jmp		while
-end_while:	ret		
+			cld					; clear flags
+			mov 	rcx, -1
+			xor		al, al
+			repne	scasb		; repeatedly scan string for 0
+			mov		rax, -2
+			sub		rax, rcx	; place value in rax to return
+			ret
