@@ -37,14 +37,35 @@ void	test_ft_strcmp()
 	printf("3) \"jbc\" - \"acd\"\n");
 	printf("strcmp: %d\n", strcmp("jbc", "acd"));
 	printf("ft_strcmp: %d\n", ft_strcmp("jbc", "acd"));
-
+	printf("4) \"abc\" - \"abcdef\"\n");
+	printf("strcmp: %d\n", strcmp("abc", "abcdef"));
+	printf("ft_strcmp: %d\n", ft_strcmp("abc", "abcdef"));
+	printf("5) \"abcdef\" - \"abc\"\n");
+	printf("strcmp: %d\n", strcmp("abcdef", "abc"));
+	printf("ft_strcmp: %d\n", ft_strcmp("abcdef", "abc"));
+	printf("6) \"\" - \"\"\n");
+	printf("strcmp: %d\n", strcmp("", ""));
+	printf("ft_strcmp: %d\n", ft_strcmp("", ""));
+	printf("7) \"a\" - \"abc\"\n");
+	printf("strcmp: %d\n", strcmp("a", "abc"));
+	printf("ft_strcmp: %d\n", ft_strcmp("a", "abc"));	
+	printf("8) \"abc\" - \"a\"\n");
+	printf("strcmp: %d\n", strcmp("abc", "a"));
+	printf("ft_strcmp: %d\n", ft_strcmp("abc", "a"));
+	printf("9) \"abc\" - \"\"\n");
+	printf("strcmp: %d\n", strcmp("abc", ""));
+	printf("ft_strcmp: %d\n", ft_strcmp("abc", ""));
+	printf("10) \"A\" - \"a\"\n");
+	printf("strcmp: %d\n", strcmp("A", "a"));
+	printf("ft_strcmp: %d\n", ft_strcmp("A", "a"));
+	
 }
 
 int main() 
 {
 	test_ft_strlen();
 	divider();
-	//test_ft_strcmp();
+	test_ft_strcmp();
 	divider();
 	
 	return 0;
