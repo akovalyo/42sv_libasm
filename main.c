@@ -5,6 +5,8 @@
 
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strcpy(char *dest, const char *src);
+
 
 void	divider()
 {
@@ -14,52 +16,50 @@ void	divider()
 void	test_ft_strlen()
 {
 	printf("Test ft_strlen:\n1) \"hello\"\n");
-	printf("strlen: %lu\n", strlen("hello"));
-	printf("ft_strlen: %lu\n", ft_strlen("hello"));
+	printf("strlen: %lu\nft_strlen:%lu\n", strlen("hello"), ft_strlen("hello"));
 	printf("2) \"\"\n");
-	printf("strlen: %lu\n", strlen(""));
-	printf("ft_strlen: %lu\n", ft_strlen(""));
+	printf("strlen: %lu\nft_strlen: %lu\n", strlen(""), ft_strlen(""));
 	printf("3) \"\\n\"\n");
-	printf("strlen: %lu\n", strlen("\n"));
-	printf("ft_strlen: %lu\n", ft_strlen("\n"));
+	printf("strlen: %lu\nft_strlen: %lu\n", strlen("\n"), ft_strlen("\n"));
 	printf("4) \"1234567890\"\n");
-	printf("strlen: %lu\n", strlen("1234567890"));
-	printf("ft_strlen: %lu\n", ft_strlen("1234567890"));
+	printf("strlen: %lu\nft_strlen: %lu\n", strlen("1234567890"), ft_strlen("1234567890"));
 }
 
 void	test_ft_strcmp()
 {
-	printf("Test ft_strcmp:\nstrcmp: %d\n", strcmp("hello", "hello"));
-	printf("ft_strcmp: %d\n", ft_strcmp("hello", "hello"));
+	printf("Test ft_strcmp:\n1) \"hello\" - \"hello\"");
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("hello", "hello"), ft_strcmp("hello", "hello"));
 	printf("2) \"abc\" - \"bcd\"\n");
-	printf("strcmp: %d\n", strcmp("abc", "fcd"));
-	printf("ft_strcmp: %d\n", ft_strcmp("abc", "fcd"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abc", "fcd"), ft_strcmp("abc", "fcd"));
 	printf("3) \"jbc\" - \"acd\"\n");
-	printf("strcmp: %d\n", strcmp("jbc", "acd"));
-	printf("ft_strcmp: %d\n", ft_strcmp("jbc", "acd"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("jbc", "acd"), ft_strcmp("jbc", "acd"));
 	printf("4) \"abc\" - \"abcdef\"\n");
-	printf("strcmp: %d\n", strcmp("abc", "abcdef"));
-	printf("ft_strcmp: %d\n", ft_strcmp("abc", "abcdef"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abc", "abcdef"), ft_strcmp("abc", "abcdef"));
 	printf("5) \"abcdef\" - \"abc\"\n");
-	printf("strcmp: %d\n", strcmp("abcdef", "abc"));
-	printf("ft_strcmp: %d\n", ft_strcmp("abcdef", "abc"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abcdef", "abc"), ft_strcmp("abcdef", "abc"));
 	printf("6) \"\" - \"\"\n");
-	printf("strcmp: %d\n", strcmp("", ""));
-	printf("ft_strcmp: %d\n", ft_strcmp("", ""));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("", ""), ft_strcmp("", ""));
 	printf("7) \"a\" - \"abc\"\n");
-	printf("strcmp: %d\n", strcmp("a", "abc"));
-	printf("ft_strcmp: %d\n", ft_strcmp("a", "abc"));	
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("a", "abc"), ft_strcmp("a", "abc"));	
 	printf("8) \"abc\" - \"a\"\n");
-	printf("strcmp: %d\n", strcmp("abc", "a"));
-	printf("ft_strcmp: %d\n", ft_strcmp("abc", "a"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abc", "a"), ft_strcmp("abc", "a"));
 	printf("9) \"abc\" - \"\"\n");
-	printf("strcmp: %d\n", strcmp("abc", ""));
-	printf("ft_strcmp: %d\n", ft_strcmp("abc", ""));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abc", ""), ft_strcmp("abc", ""));
 	printf("10) \"A\" - \"a\"\n");
-	printf("strcmp: %d\n", strcmp("A", "a"));
-	printf("ft_strcmp: %d\n", ft_strcmp("A", "a"));
+	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("A", "a"), ft_strcmp("A", "a"));
 	
 }
+
+void	test_ft_strcpy()
+{
+	char d1[50];
+	char d2[50];
+				
+	printf("Check ft_strcpy\nTest1: src=\"abc\"\n");
+	printf("strcpy:  dst=\"%s\", len=%lu\nft_strcpy: dst=\"%s\", len=%lu\n\n", strcpy(d1, "abc"), strlen(d1), ft_strcpy(d2, "abc"), strlen(d2));
+	printf("Test 2: src=\"\"\nstrcpy:  dst=\"%s\", len=%lu\nft_strcpy: dst=\"%s\", len=%lu\n", strcpy(d1, ""), strlen(d1), ft_strcpy(d2, ""), strlen(d2));
+	
+}	
 
 int main() 
 {
@@ -67,6 +67,7 @@ int main()
 	divider();
 	test_ft_strcmp();
 	divider();
-	
+	test_ft_strcpy();	
+	divider();
 	return 0;
 }
