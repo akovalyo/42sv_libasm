@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <inttypes.h>
 #include <string.h>
-
+#include <errno.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dest, const char *src);
-
+ssize_t	ft_write(int fd, const void *buf, size_t count);
 
 void	divider()
 {
@@ -16,13 +18,13 @@ void	divider()
 void	test_ft_strlen()
 {
 	printf("Test ft_strlen:\n1) \"hello\"\n");
-	printf("strlen: %lu\nft_strlen:%lu\n", strlen("hello"), ft_strlen("hello"));
+	printf("strlen: %d\nft_strlen:%d\n", (int)strlen("hello"), (int)ft_strlen("hello"));
 	printf("2) \"\"\n");
-	printf("strlen: %lu\nft_strlen: %lu\n", strlen(""), ft_strlen(""));
+	printf("strlen: %d\nft_strlen: %d\n", (int)strlen(""), (int)ft_strlen(""));
 	printf("3) \"\\n\"\n");
-	printf("strlen: %lu\nft_strlen: %lu\n", strlen("\n"), ft_strlen("\n"));
+	printf("strlen: %d\nft_strlen: %d\n", (int)strlen("\n"), (int)ft_strlen("\n"));
 	printf("4) \"1234567890\"\n");
-	printf("strlen: %lu\nft_strlen: %lu\n", strlen("1234567890"), ft_strlen("1234567890"));
+	printf("strlen: %d\nft_strlen: %d\n", (int)strlen("1234567890"), (int)ft_strlen("1234567890"));
 }
 
 void	test_ft_strcmp()
@@ -56,10 +58,35 @@ void	test_ft_strcpy()
 	char d2[50];
 				
 	printf("Check ft_strcpy\nTest1: src=\"abc\"\n");
-	printf("strcpy:  dst=\"%s\", len=%lu\nft_strcpy: dst=\"%s\", len=%lu\n\n", strcpy(d1, "abc"), strlen(d1), ft_strcpy(d2, "abc"), strlen(d2));
-	printf("Test 2: src=\"\"\nstrcpy:  dst=\"%s\", len=%lu\nft_strcpy: dst=\"%s\", len=%lu\n", strcpy(d1, ""), strlen(d1), ft_strcpy(d2, ""), strlen(d2));
+	printf("strcpy:  dst=\"%s\", len=%d\nft_strcpy: dst=\"%s\", len=%d\n\n", strcpy(d1, "abc"), (int)strlen(d1), ft_strcpy(d2, "abc"), (int)strlen(d2));
+	printf("Test 2: src=\"\"\nstrcpy:  dst=\"%s\", len=%d\nft_strcpy: dst=\"%s\", len=%d\n", strcpy(d1, ""), (int)strlen(d1), ft_strcpy(d2, ""), (int)strlen(d2));
 	
-}	
+}
+
+void	test_ft_write()
+{
+	int a;
+	int b;
+	
+	printf("Test ft_write.\nTest 1 - \"abc\\n\" to stdout\nft_write:\n");
+	a = ft_write(1, "abc\n", 4);
+	printf("N bytes: %d\n", a);
+
+	printf("Test 2 (unopend fd):\n");
+	a = ft_write(6, "abc\n", 4);
+	printf("N bytes: %d\n", a);
+	printf("errno: %d\n\n", errno);
+
+	printf("write:\nTest 1:\n");
+	b = write(1, "abc\n", 4);
+	printf("N bytes: %d\n", b);
+
+	printf("Test 2:\n");
+	b = write(6, "abc\n", 4);
+	printf("N bytes: %d\n", b);
+	printf("errno: %d\n", errno);
+	
+}
 
 int main() 
 {
@@ -68,6 +95,8 @@ int main()
 	test_ft_strcmp();
 	divider();
 	test_ft_strcpy();	
+	divider();
+	test_ft_write();
 	divider();
 	return 0;
 }
