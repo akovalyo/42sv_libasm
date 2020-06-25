@@ -4,11 +4,13 @@
 #include <inttypes.h>
 #include <string.h>
 #include <errno.h>
+#include <fcntl.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dest, const char *src);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
+ssize_t ft_read(int fd, void *buf, size_t count);
 
 void	divider()
 {
@@ -85,7 +87,22 @@ void	test_ft_write()
 	b = write(6, "abc\n", 4);
 	printf("N bytes: %d\n", b);
 	printf("errno: %d\n", errno);
+}
+
+void	test_ft_read()
+{
+	char	buff[500];
+	int		a;
+	int		fd;
+
+	fd = open("/dev/urandom", O_RDONLY);
+	a = ft_read(fd, buff, 500); 
+	printf("Test ft_read\nRead 500 bytes from /dev/urandom\nN bytes: %d\nREAD:\n%s", a,  buff);
+	close(fd);
 	
+	a = ft_read(10, buff, 500);
+	printf("\n\nRead from unopen fd:\nft_read return: %d\nerrno: %d\n", a, errno);
+
 }
 
 int main() 
@@ -97,6 +114,8 @@ int main()
 	test_ft_strcpy();	
 	divider();
 	test_ft_write();
+	divider();
+	test_ft_read();
 	divider();
 	return 0;
 }
