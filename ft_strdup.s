@@ -1,7 +1,7 @@
 			section	.text
 			global	_ft_strdup
-			extern _malloc, _ft_strlen, _ft_strcpy
-			default rel
+			extern	_malloc, _ft_strlen, _ft_strcpy
+			default	rel
 _ft_strdup:	
 			xor		rax, rax	; set rax to 0
 			push	rdi			; save str			
@@ -15,8 +15,6 @@ _ft_strdup:
 			mov		rdi, rax	
 			call	_ft_strcpy	; call ft_strcpy and copy from memory pointed by rsi to allocated memory pointed by rdi and save address in rax
 			ret
-			
-			
 return_error:
 			xor		rax, rax
 			ret
