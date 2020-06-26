@@ -11,6 +11,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dest, const char *src);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 ssize_t ft_read(int fd, void *buf, size_t count);
+char	*ft_strdup(const char *s);
 
 void	divider()
 {
@@ -95,14 +96,24 @@ void	test_ft_read()
 	int		a;
 	int		fd;
 
-	fd = open("/dev/urandom", O_RDONLY);
-	a = ft_read(fd, buff, 500); 
-	printf("Test ft_read\nRead 500 bytes from /dev/urandom\nN bytes: %d\nREAD:\n%s", a,  buff);
+	fd = open("ft_strcpy.s", O_RDONLY);
+	a = ft_read(fd, buff, 50); 
+	printf("Test ft_read\nRead 50 bytes from ft_strcpy.s\nN bytes: %d\nREAD:\nstart[%s]end", a,  buff);
 	close(fd);
 	
 	a = ft_read(10, buff, 500);
 	printf("\n\nRead from unopen fd:\nft_read return: %d\nerrno: %d\n", a, errno);
+}
 
+void	test_ft_strdup()
+{
+	char *dst;
+	char *dst2;
+
+	dst = ft_strdup("hello");
+	printf("Test ft_strdup:\n1) ft_strdup(\"hello\"):\nreturn: %s, len=%d\n\n", dst, (int)strlen(dst));
+	dst2 = ft_strdup("");
+	printf("2) ft_strdup:(\"\")\nreturn: %s, len=%d\n", dst2, (int)strlen(dst2));
 }
 
 int main() 
@@ -116,6 +127,8 @@ int main()
 	test_ft_write();
 	divider();
 	test_ft_read();
+	divider();
+	test_ft_strdup();
 	divider();
 	return 0;
 }
