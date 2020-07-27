@@ -4,6 +4,13 @@ The aim of the project is to get familiar with assembly language.
 
 # x86 64-bit Assembly Programming for OS X
 
+Prerquisites:
+
+```
+nasm v. 2.10.06
+```
+
+
 ## Syntax
 
 1. **section .data**

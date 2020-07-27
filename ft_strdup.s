@@ -1,7 +1,6 @@
 			section	.text
 			global	_ft_strdup
 			extern	_malloc, _ft_strlen, _ft_strcpy
-			default	rel
 _ft_strdup:	
 			xor		rax, rax	; set rax to 0
 			push	rdi			; save str			
