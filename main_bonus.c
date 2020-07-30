@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:59:06 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/07/30 12:00:00 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/07/30 12:33:44 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 static int	convert_ch(char c, int base, int *nbr)
 {
 	int		c_int;
-
-    if (c >='0' && c <= '9')
+	
+	if (c >= '0' && c <= '9')
 		c_int = c - '0';
-    else if (c >= 'A' && c <= 'F')
+	else if (c >= 'A' && c <= 'F')
 		c_int = c - 'A' + 10;
-    else if (c >= 'a' && c <= 'f')	
+	else if (c >= 'a' && c <= 'f')
 		c_int = c - 'a' + 10;
 	else
 		return (0);
 	if (c_int < base)
 		*nbr = *nbr * base + c_int;
-    else
-        return (0);
-    return (1);
+	else
+		return (0);
+	return (1);
 }
 
 static int	ft_atoi_cut(const char *nptr)
 {
-	int 	collector;
+	int		collector;
 	int		i;
 
 	collector = 0;

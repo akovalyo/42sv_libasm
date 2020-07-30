@@ -183,6 +183,7 @@ j** label
 
 * 6 first integer parameters in a function are passed in: **rdi, rsi, rdx, rcx, r8, r9**
 
+* registers for 2 first string arguments in a function: **rdi, rsi**
 ***
 
 ## Hello World
