@@ -18,11 +18,12 @@ SRC_BONUS=ft_atoi_base_bonus.s
 ifeq ($(SYSTEM),Darwin)
 	FLAGS = $(FLAGS_MAC)
 	DIR = $(DIR_MAC)
-	CC = 
+	CC = $(CC_MAC)
 endif
 ifeq ($(SYSTEM),Linux)
 	FLAGS = $(FLAGS_LIN)
 	DIR = $(DIR_LIN)
+	CC = $(CC_LIN)
 endif
 
 SRCS = ${addprefix ${DIR}, ${SRC}}
@@ -56,7 +57,7 @@ test:
 	./test
 
 test_bonus:
-	$(CC) main_bonus.c -I. -L. -lasm -o test
+	$(CC) main_bonus.c -I includes/ -L. -lasm -o test
 	./test
 
 .PHONY: clean fclean re main test bonus
