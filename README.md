@@ -15,13 +15,11 @@ nasm v 2.10.06
 
 ### for Linux
 
-**on Linux 20.04:**
-
 Tested on:
 
 ```
-Linux 18.04, 20.04
-nasm v 2.14.02
+Linux 18.04, nasm v 2.13.02
+Linux 20.04, nasm v 2.14.02
 ```
 
 
