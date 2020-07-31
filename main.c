@@ -95,8 +95,8 @@ void	test_ft_read()
 	int		a;
 	int		fd;
 
-	fd = open("ft_strcpy.s", O_RDONLY);
-	a = ft_read(fd, buff, 50); 
+	fd = open("linux/ft_strcpy.s", O_RDONLY);
+	a = ft_read(fd, buff, 40); 
 	printf("Test ft_read\nRead 50 bytes from ft_strcpy.s\nN bytes: %d\nREAD:\nstart[%s]end", a,  buff);
 	close(fd);
 	
