@@ -2,12 +2,26 @@
 
 The aim of the project is to get familiar with assembly language.
 
-# x86 64-bit Assembly Programming for OS X
+# x86 64-bit Assembly Programming 
 
-Prerquisites:
+### for OS X
+
+Tested on:
 
 ```
-nasm v. 2.10.06
+macOS 10.13.4
+nasm v 2.10.06
+```
+
+### for Linux
+
+**on Linux 20.04:**
+
+Tested on:
+
+```
+Linux 18.04, 20.04
+nasm v 2.14.02
 ```
 
 
