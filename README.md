@@ -239,11 +239,17 @@ nasm -f macho64 hello.s && gcc hello.o && a.out
 
 ***
 
-## System calls (64bit OS X)
+## System calls 
 
-Identified in:
+**for 64bit OS X defined in:**
 
 ```
 /usr/include/sys/syscall.h
 ```
 without  the 0x2000000 offset
+
+**for 64bit Linux:**
+
+```
+ausyscall --dump
+```
