@@ -12,7 +12,8 @@ SRC=ft_read.s \
 	ft_strdup.s \
 	ft_strlen.s \
 	ft_write.s
-SRC_BONUS=ft_atoi_base_bonus.s
+SRC_BONUS=ft_atoi_base_bonus.s \
+			ft_list_push_front.s
 
 
 ifeq ($(SYSTEM),Darwin)

@@ -15,10 +15,20 @@ _ft_list_push_front:
 			cmp		rax, 0			; check if malloc fails
 			jz		return
 			mov		[rax], rsi		; new_node.data = data
+			
+			cmp 	rdi, 0x00
+			jz		null_begin
+
 			mov		rdx, [rdi]		; tmp = begin_list
 			mov		[rax + 8], rdx	; new_node.next = tmp
 			mov		[rdi], rax		; begin_list = new_node
 
 return:
 			leave					; release the stack space
+			ret
+
+null_begin:
+			mov		byte [rax + 8], 0  ; new_node.next = NULL
+			mov		[rdi], rax
+			leave
 			ret

@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:59:06 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/07/30 12:33:44 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/08/05 10:34:57 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,33 @@ int			ft_atoi_base_original(char *str, char *base)
 	return (nbr * sign);
 }
 
+int		ft_lstsize(t_list *lst)
+{
+	int i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_lstprint_str(t_list *lst)
+{
+	int i = 1;
+
+	while (lst != NULL && lst->data != NULL)
+	{
+		printf("node %d: %s\n", i, lst->data);
+		lst = lst->next;
+		i++;
+	}
+}
+
 void	divider()
 {
 		printf("************************\n\n");
@@ -84,7 +111,7 @@ void	divider()
 
 void	test_ft_atoi_base()
 {
-	printf("Test ft_atoi_base:\n\n1) str=\"\", base=10\n");
+	printf("TEST FT_ATOI_BASE:\n\n1) str=\"\", base=10\n");
     printf("ft_atoi_base_original: %d\nft_atoi_base: %d\n\n", ft_atoi_base_original("", "10"), ft_atoi_base("", "10"));
     printf("2) str=123, base=\"\"\n");
     printf("ft_atoi_base_original: %d\nft_atoi_base: %d\n\n", ft_atoi_base_original("123", ""), ft_atoi_base("123", ""));
@@ -128,29 +155,35 @@ void	test_ft_atoi_base()
     printf("ft_atoi_base_original: %d\nft_atoi_base: %d\n\n", ft_atoi_base_original("101010", "2"), ft_atoi_base("101010", "2"));
     printf("21) str=132, base=5\n");
     printf("ft_atoi_base_original: %d\nft_atoi_base: %d\n\n", ft_atoi_base_original("132", "5"), ft_atoi_base("132", "5"));
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void	test_ft_list_push_front()
+{
+	t_list *begin = NULL;
+	// t_list lst;
+	// lst.data = strdup("hello");
+	// lst.next = NULL;
+	// begin = &lst;
+	printf("TEST FT_LIST_PUSH_FRONT:\n\n");
+	printf("list size: %d\n\n", ft_lstsize(begin));
+	
+	printf("Step 1: Add 1st node to the empty list, data=\"world\":\n...\n");
+	ft_list_push_front(&begin, "world");
+	printf("list size: %d\nlst data:\n", ft_lstsize(begin));
+	ft_lstprint_str(begin);
+	printf("\n\nStep 2: Add 2nd node to the list, data=\"hello\":\n...\n");
+	ft_list_push_front(&begin, "hello");
+	printf("list size: %d\nlst data:\n", ft_lstsize(begin));
+	ft_lstprint_str(begin);
+	//printf("list size: %d\n", ft_lstsize(begin));
+	// ft_list_push_front(&begin, "hello");
+	// printf("list size: %d\n", ft_lstsize(begin));
 }
 
 int main() 
 {
 	test_ft_atoi_base();
 	divider();
-
+	test_ft_list_push_front();
+	divider();
 }
