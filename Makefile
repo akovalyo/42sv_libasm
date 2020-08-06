@@ -13,9 +13,9 @@ SRC=ft_read.s \
 	ft_strlen.s \
 	ft_write.s
 SRC_BONUS=ft_atoi_base_bonus.s \
-			ft_list_push_front.s \
-			ft_list_size.s \
-			ft_list_sort.s
+			ft_list_push_front_bonus.s \
+			ft_list_size_bonus.s \
+			ft_list_sort_bonus.s
 			
 
 ifeq ($(SYSTEM),Darwin)
@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 all: $(NAME)
 	
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean 
 	@rm -f $(NAME)
