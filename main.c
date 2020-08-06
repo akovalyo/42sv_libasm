@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 09:47:30 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/07/27 09:47:32 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/08/05 11:10:57 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	divider()
 
 void	test_ft_strlen()
 {
-	printf("Test ft_strlen:\n1) \"hello\"\n");
+	printf("TEST FT_STRLEN:\n1) \"hello\"\n");
 	printf("strlen: %d\nft_strlen:%d\n", (int)strlen("hello"), (int)ft_strlen("hello"));
 	printf("2) \"\"\n");
 	printf("strlen: %d\nft_strlen: %d\n", (int)strlen(""), (int)ft_strlen(""));
@@ -31,7 +31,7 @@ void	test_ft_strlen()
 
 void	test_ft_strcmp()
 {
-	printf("Test ft_strcmp:\n1) \"hello\" - \"hello\"");
+	printf("TEST FT_STRCMP:\n1) \"hello\" - \"hello\"");
 	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("hello", "hello"), ft_strcmp("hello", "hello"));
 	printf("2) \"abc\" - \"bcd\"\n");
 	printf("strcmp: %d\nft_strcmp: %d\n", strcmp("abc", "fcd"), ft_strcmp("abc", "fcd"));
@@ -59,7 +59,7 @@ void	test_ft_strcpy()
 	char d1[50];
 	char d2[50];
 				
-	printf("Check ft_strcpy\nTest1: src=\"abc\"\n");
+	printf("TEST FT_STRCPY\nTest1: src=\"abc\"\n");
 	printf("strcpy:  dst=\"%s\", len=%d\nft_strcpy: dst=\"%s\", len=%d\n\n", strcpy(d1, "abc"), (int)strlen(d1), ft_strcpy(d2, "abc"), (int)strlen(d2));
 	printf("Test 2: src=\"\"\nstrcpy:  dst=\"%s\", len=%d\nft_strcpy: dst=\"%s\", len=%d\n", strcpy(d1, ""), (int)strlen(d1), ft_strcpy(d2, ""), (int)strlen(d2));
 	
@@ -70,7 +70,7 @@ void	test_ft_write()
 	int a;
 	int b;
 	
-	printf("Test ft_write.\nTest 1 - \"abc\\n\" to stdout\nft_write:\n");
+	printf("TEST FT_WRITE.\nTest 1 - \"abc\\n\" to stdout\nft_write:\n");
 	a = ft_write(1, "abc\n", 4);
 	printf("N bytes: %d\n", a);
 
@@ -97,7 +97,7 @@ void	test_ft_read()
 
 	fd = open("linux/ft_strcpy.s", O_RDONLY);
 	a = ft_read(fd, buff, 40); 
-	printf("Test ft_read\nRead 50 bytes from ft_strcpy.s\nN bytes: %d\nREAD:\nstart[%s]end", a,  buff);
+	printf("TEST FT_READ\nRead 50 bytes from ft_strcpy.s\nN bytes: %d\nREAD:\nstart[%s]end", a,  buff);
 	close(fd);
 	
 	a = ft_read(10, buff, 500);
@@ -110,7 +110,7 @@ void	test_ft_strdup()
 	char *dst2;
 
 	dst = ft_strdup("hello");
-	printf("Test ft_strdup:\n1) ft_strdup(\"hello\"):\nreturn: %s, len=%d\n\n", dst, (int)strlen(dst));
+	printf("Test FT_STRDUP:\n1) ft_strdup(\"hello\"):\nreturn: %s, len=%d\n\n", dst, (int)strlen(dst));
 	dst2 = ft_strdup("");
 	printf("2) ft_strdup:(\"\")\nreturn: %s, len=%d\n", dst2, (int)strlen(dst2));
 }

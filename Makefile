@@ -13,8 +13,10 @@ SRC=ft_read.s \
 	ft_strlen.s \
 	ft_write.s
 SRC_BONUS=ft_atoi_base_bonus.s \
-			ft_list_push_front.s
-
+			ft_list_push_front.s \
+			ft_list_size.s \
+			ft_list_sort.s
+			
 
 ifeq ($(SYSTEM),Darwin)
 	FLAGS = $(FLAGS_MAC)

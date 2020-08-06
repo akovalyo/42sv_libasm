@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:59:06 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/08/05 10:34:57 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/08/06 12:56:04 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			ft_atoi_base_original(char *str, char *base)
 	return (nbr * sign);
 }
 
-int		ft_lstsize(t_list *lst)
+int		ft_lstsize_original(t_list *lst)
 {
 	int i;
 
@@ -103,6 +103,8 @@ void	ft_lstprint_str(t_list *lst)
 		i++;
 	}
 }
+
+
 
 void	divider()
 {
@@ -160,24 +162,52 @@ void	test_ft_atoi_base()
 void	test_ft_list_push_front()
 {
 	t_list *begin = NULL;
-	// t_list lst;
-	// lst.data = strdup("hello");
-	// lst.next = NULL;
-	// begin = &lst;
-	printf("TEST FT_LIST_PUSH_FRONT:\n\n");
-	printf("list size: %d\n\n", ft_lstsize(begin));
-	
-	printf("Step 1: Add 1st node to the empty list, data=\"world\":\n...\n");
-	ft_list_push_front(&begin, "world");
-	printf("list size: %d\nlst data:\n", ft_lstsize(begin));
+	printf("TEST FT_LIST_PUSH_FRONT & FT_LIST_SIZE:\n\n");
+	printf("ft_lstsize_original: %d\n", ft_lstsize_original(begin));
+	printf("ft_list_size: %d\n\n", ft_list_size(begin));
+	printf("Step 1: Add 1st node to the empty list, data=\"hi\":\n...\n");
+	ft_list_push_front(&begin, "hi");
+	printf("list size: %d\n", ft_lstsize_original(begin));
+	printf("ft_list_size: %d\nlst data:\n", ft_list_size(begin));
 	ft_lstprint_str(begin);
 	printf("\n\nStep 2: Add 2nd node to the list, data=\"hello\":\n...\n");
 	ft_list_push_front(&begin, "hello");
-	printf("list size: %d\nlst data:\n", ft_lstsize(begin));
+	printf("list size: %d\n", ft_lstsize_original(begin));
+	printf("ft_list_size: %d\nlst data:\n", ft_list_size(begin));
 	ft_lstprint_str(begin);
-	//printf("list size: %d\n", ft_lstsize(begin));
-	// ft_list_push_front(&begin, "hello");
-	// printf("list size: %d\n", ft_lstsize(begin));
+	//printf("\n\nsorted:\n");
+	//ft_list_sort(&begin, &strcmp);
+	//ft_lstprint_str(begin);
+
+	printf("\n\nStep 3: Add 3d node to the list, data=\"world\":\n...\n");
+	ft_list_push_front(&begin, "world");
+	printf("list size: %d\n", ft_lstsize_original(begin));
+	printf("ft_list_size: %d\nlst data:\n", ft_list_size(begin));
+	ft_lstprint_str(begin);
+	printf("\n\nsorted:\n");
+	ft_list_sort(&begin, &strcmp);
+	ft_lstprint_str(begin);
+
+	t_list	*nums = NULL;
+
+	printf("\n\nSORT 2:\n");
+	ft_list_push_front(&nums, "6");
+	ft_list_push_front(&nums, "1");
+	ft_list_push_front(&nums, "6");
+	ft_list_push_front(&nums, "5");
+	ft_list_push_front(&nums, "9");
+	ft_list_push_front(&nums, "1");
+	ft_list_push_front(&nums, "2");
+	ft_list_push_front(&nums, "8");
+	ft_list_push_front(&nums, "3");
+	ft_list_push_front(&nums, "6");
+	ft_list_push_front(&nums, "2");
+	ft_list_push_front(&nums, "7");
+	ft_lstprint_str(nums);
+	printf("\n\nsorted:\n");
+	ft_list_sort(&nums, &strcmp);
+	ft_lstprint_str(nums);
+
 }
 
 int main() 

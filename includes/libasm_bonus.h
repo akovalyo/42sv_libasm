@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:51:28 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/08/05 10:04:05 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/08/06 12:38:13 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ ssize_t					ft_read(int fd, void *buf, size_t count);
 char					*ft_strdup(const char *s);
 int						ft_atoi_base(char *str, char *base);
 void					ft_list_push_front(t_list **begin_list, void *data);
+int						ft_list_size(t_list *begin_list);
+void					ft_list_sort(t_list **begin_list, int (*cmp)());
 
 #endif
