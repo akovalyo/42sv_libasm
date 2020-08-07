@@ -11,7 +11,7 @@ macOS 10.13.4, nasm v 2.10.06
 Linux 18.04, nasm v 2.13.02
 Linux 20.04, nasm v 2.14.02
 ```
-*ft_list_sort* doesn't work on linux
+*ft_list_sort* doesn't work correctly on linux
 
 ## Syntax
 
@@ -171,7 +171,7 @@ j** label
 | jnz | jimp if not zero | jne | ZF=0 |
 | jg | jump if > 0 | jnle | ZF=0 and SF=0 |
 | jge | jump if >= 0 | jnl | SF=0 |
-| jl | jump if > 0 | jnge js | SF=0 |
+| jl | jump if < 0 | jnge js | SF=0 |
 | jle | jump if <= 0 | jng | ZF=1 or SF=1 |
 | jc | jump if carry | jb jnae | CF=1 |
 | jnc | jump if not carry | jnb jae | |

@@ -22,13 +22,11 @@ ifeq ($(SYSTEM),Darwin)
 	FLAGS = $(FLAGS_MAC)
 	DIR = $(DIR_MAC)
 	CC = $(CC_MAC)
-	MAIN_BONUS = main_bonus.c
 endif
 ifeq ($(SYSTEM),Linux)
 	FLAGS = $(FLAGS_LIN)
 	DIR = $(DIR_LIN)
 	CC = $(CC_LIN)
-	MAIN_BONUS = main_lin_bonus.c
 endif
 
 SRCS = ${addprefix ${DIR}, ${SRC}}
@@ -62,7 +60,7 @@ test:
 	./test
 
 test_bonus:
-	$(CC) $(MAIN_BONUS) -I includes/ -L. -lasm -o test
+	$(CC) main_bonus.c -I includes/ -L. -lasm -o test
 	./test
 
 .PHONY: clean fclean re main test bonus

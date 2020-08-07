@@ -159,6 +159,16 @@ void	test_ft_atoi_base()
     printf("ft_atoi_base_original: %d\nft_atoi_base: %d\n\n", ft_atoi_base_original("132", "5"), ft_atoi_base("132", "5"));
 }
 
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	size_t i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
 void	test_ft_list_push_front()
 {
 	t_list *begin = NULL;
@@ -194,7 +204,7 @@ void	test_ft_list_push_front()
 	ft_list_push_front(&nums, "6");
 	ft_list_push_front(&nums, "1");
 	ft_list_push_front(&nums, "6");
-	ft_list_push_front(&nums, "5");
+	ft_list_push_front(&nums, "1");
 	ft_list_push_front(&nums, "9");
 	ft_list_push_front(&nums, "1");
 	ft_list_push_front(&nums, "2");
