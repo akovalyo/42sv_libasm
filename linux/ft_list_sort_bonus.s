@@ -31,15 +31,10 @@ compare:
 			jmp		inc_next
 
 swap:			
-			; mov		rax, 1		
-			; leave
-			; ret	
 			mov		rbx, [r14]			; tmp_list = *begin_list->data 
 			mov		rcx, [r13]			; tmp_next = next_node->data 
 			mov		[r14], rcx
 			mov		[r13], rbx
-
-
 
 inc_next:
 			mov		r13, [r13 + 8]		; next_node = next_node->next
