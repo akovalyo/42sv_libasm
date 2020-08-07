@@ -11,7 +11,7 @@ macOS 10.13.4, nasm v 2.10.06
 Linux 18.04, nasm v 2.13.02
 Linux 20.04, nasm v 2.14.02
 ```
-
+*ft_list_sort* doesn't work on linux
 
 ## Syntax
 
