@@ -187,7 +187,6 @@ j** label
 
 Any additional parameters get pushed on the stack. 
 
-* registers for 2 first string arguments in a function: **rdi, rsi**
 ***
 
 ## Memory access:

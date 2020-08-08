@@ -104,6 +104,30 @@ void	ft_lstprint_str(t_list *lst)
 	}
 }
 
+void	ft_list_remove_if_original(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+	t_list *root;
+	t_list *node;
+	t_list *next;
+
+	root = *begin_list;
+	node = *begin_list;
+	while (root)
+	{
+		next = (*root).next;
+		if ((cmp)(root->data, data_ref) == 0)
+		{
+			if (root == *begin_list)
+			{
+				*begin_list = next;
+			}
+			node->next = next;
+			free(root);
+		}
+		node = root;
+		root = next;
+	}
+}
 
 
 void	divider()
@@ -217,6 +241,12 @@ void	test_ft_list_push_front()
 	printf("\n\nsorted:\n");
 	ft_list_sort(&nums, &strcmp);
 	ft_lstprint_str(nums);
+	divider();
+
+	printf("\n\nTEST FT_LIST_REMOVE_IF:\n\n");
+
+	ft_list_remove_if_original(&begin, "hello", &strcmp);
+	ft_lstprint_str(begin);
 
 }
 
