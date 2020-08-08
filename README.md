@@ -185,8 +185,19 @@ j** label
 
 * 6 first integer parameters in a function are passed in: **rdi, rsi, rdx, rcx, r8, r9**
 
+Any additional parameters get pushed on the stack. 
+
 * registers for 2 first string arguments in a function: **rdi, rsi**
 ***
+
+## Memory access:
+
+| datatype 	| Bits 	| Register 	| Access memory | Allocate memory 	| 
+| --- 		| --- 	| --- 		| --- 			| --- 				|
+| char 		| 8		| al		| BYTE [ptr]	| db				|
+| short 	| 16	| ax		| WORD [ptr]	| dw				|
+| int 		| 32	| eax		| DWORD [ptr]	| dd				|
+| long 		| 64	| rax		| QWORD [ptr]	| dq				| 
 
 ## Hello World
 
