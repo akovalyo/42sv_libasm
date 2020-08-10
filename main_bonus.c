@@ -6,7 +6,7 @@
 /*   By: akovalyo <akovalyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:59:06 by akovalyo          #+#    #+#             */
-/*   Updated: 2020/08/06 12:56:04 by akovalyo         ###   ########.fr       */
+/*   Updated: 2020/08/10 12:15:46 by akovalyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,9 +243,25 @@ void	test_ft_list_push_front()
 	ft_lstprint_str(nums);
 	divider();
 
-	printf("\n\nTEST FT_LIST_REMOVE_IF:\n\n");
+	t_list *begin2 = NULL;
+	ft_list_push_front(&begin2, "hi");
+	ft_lstprint_str(begin2);
 
-	ft_list_remove_if_original(&begin, "hello", &strcmp);
+	printf("\n\nTEST FT_LIST_REMOVE_IF:\n\nList:\n");
+	ft_lstprint_str(begin);
+	printf("\nDelete \"hi\" from list\n\n");
+	ft_list_remove_if(&begin, "hi", &strcmp);
+	printf("List:\n");
+	ft_lstprint_str(begin);
+
+	printf("\nDelete \"world\" from list\n\n");
+	ft_list_remove_if(&begin, "world", &strcmp);
+	printf("List:\n");
+	ft_lstprint_str(begin);
+
+	printf("\nDelete \"hello\" from list\n\n");
+	ft_list_remove_if(&begin, "hello", &strcmp);
+	printf("List:\n");
 	ft_lstprint_str(begin);
 
 }
