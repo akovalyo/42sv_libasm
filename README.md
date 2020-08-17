@@ -12,6 +12,7 @@ Linux 18.04, nasm v 2.13.02
 Linux 20.04, nasm v 2.14.02
 ```
 *ft_list_sort* doesn't work correctly on linux
+*ft_atoi_base* only for base 2-16
 
 ## Syntax
 
